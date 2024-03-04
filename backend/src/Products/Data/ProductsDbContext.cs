@@ -9,5 +9,5 @@ namespace ShopFusion.Products.Data;
 /// </remarks>
 public class ProductsDbContext(DbContextOptions options) : DbContext(options)
 {
-    public IEnumerable<Product> Products => Set<Product>();
+    public DbSet<Product> Products => Set<Product>();
 }
