@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ShopFusion.Products.Models;
 
 namespace ShopFusion.Products.Data;
 
@@ -9,5 +10,7 @@ namespace ShopFusion.Products.Data;
 /// </remarks>
 public class ProductsDbContext(DbContextOptions options) : DbContext(options)
 {
+    public DbSet<ProductBrand> ProductBrands => Set<ProductBrand>();
+    public DbSet<ProductType> ProductTypes => Set<ProductType>();
     public DbSet<Product> Products => Set<Product>();
 }

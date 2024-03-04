@@ -8,17 +8,9 @@ builder.AddApplicationServices();
 builder.Services
     .AddHttpContextAccessor();
 
-builder.Services
-    .AddGraphQLServer()
-    .AddTypes()
-    //.AddUploadType()
-    //.AddGlobalObjectIdentification()
-    .AddMutationConventions()
-    //.RegisterDbContext<ProductsDbContext>()
-    .AddInstrumentation(o => o.RenameRootActivity = true);
-
 var app = builder.Build();
 
+app.UseWebSockets();
 app.MapGet("/", () => "Welcome to the products host!");
 app.MapGraphQL();
 

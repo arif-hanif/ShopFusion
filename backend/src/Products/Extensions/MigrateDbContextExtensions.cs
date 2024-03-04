@@ -6,7 +6,7 @@ namespace ShopFusion.Products.Extensions;
 internal static class ActivityExtensions
 {
     // See https://opentelemetry.io/docs/specs/otel/trace/semantic_conventions/exceptions/
-    public static void SetExceptionTags(this Activity activity, Exception ex)
+    public static void SetExceptionTags(this Activity? activity, Exception ex)
     {
         if (activity is null)
         {
@@ -22,7 +22,7 @@ internal static class ActivityExtensions
 
 internal static class MigrateDbContextExtensions
 {
-    private static readonly string ActivitySourceName = "DbMigrations";
+    private const string ActivitySourceName = "DbMigrations";
     private static readonly ActivitySource ActivitySource = new(ActivitySourceName);
 
     public static IServiceCollection AddMigration<TContext>(this IServiceCollection services)
@@ -107,6 +107,7 @@ internal static class MigrateDbContextExtensions
         }
     }
 }
+
 public interface IDbSeeder<in TContext> where TContext : DbContext
 {
     Task SeedAsync(TContext context);
