@@ -2,11 +2,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ShopFusion.Products.Data;
 
-public class ProductsDbContext : DbContext
+/// <remarks>
+/// Add migrations using the following command inside the 'Products' project directory:
+///
+/// dotnet ef migrations add --context ProjectsDbContext [migration-name]
+/// </remarks>
+public class ProductsDbContext(DbContextOptions options) : DbContext(options)
 {
-    public ProductsDbContext(DbContextOptions options) : base(options)
-    {
-    }
-
-    public DbSet<Product> Products => Set<Product>();
+    public IEnumerable<Product> Products => Set<Product>();
 }

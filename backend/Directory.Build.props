@@ -8,7 +8,7 @@
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <ImplicitUsings>enable</ImplicitUsings>
-    <HotChocolateVersion>14.0.0-p.45</HotChocolateVersion>
+    <HotChocolateVersion>14.0.0-p.53</HotChocolateVersion>
     <AspireVersion>8.0.0-preview.3.24105.21</AspireVersion>
   </PropertyGroup>
 

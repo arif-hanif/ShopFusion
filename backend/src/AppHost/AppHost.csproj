@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Basket\Basket.csproj" />
     <ProjectReference Include="..\Products\Products.csproj" />
     <ProjectReference Include="..\Reviews\Reviews.csproj" />
+    <ProjectReference Include="..\Gateway\Gateway.csproj" />
   </ItemGroup>
 
 </Project>

@@ -12,12 +12,18 @@ var basketHost = builder.AddProject<Projects.Basket>("basket-host")
     .WithReference(redis);
 
 var productsHost = builder.AddProject<Projects.Products>("products-host")
-    .WithReference(productsDb);
+    .WithReference(productsDb)
+    .WithHttpEndpoint(hostPort: 59091, name:"products-host");
 
 var reviewsHost = builder.AddProject<Projects.Reviews>("reviews-host")
     .WithReference(reviewsDb);
 
 builder.AddPnpmApp("storefront-web", "../../../frontend", "dev", ["--filter=@shopfusion/storefront-web"])
     .WithReference(productsHost);
+
+var gateway = builder.AddProject<Projects.Gateway>("gateway")
+    .WithReference(productsHost);
+
+gateway.WithEnvironment("CallBackUrl", gateway.GetEndpoint("https"));
 
 builder.Build().Run();
