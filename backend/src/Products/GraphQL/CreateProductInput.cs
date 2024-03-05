@@ -9,4 +9,4 @@ public sealed record CreateProductInput(
     double Price,
     Guid ProductTypeId,
     Guid ProductBrandId
-    );// : IRequest<Product?>;
+    ) : IRequest<Product?>;

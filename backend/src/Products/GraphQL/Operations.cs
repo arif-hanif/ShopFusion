@@ -30,7 +30,7 @@ public static class Operations
         CancellationToken cancellationToken) => await mediator.Send(input, cancellationToken);
     
     [Subscription]
-    [Topic(nameof(OnCreatedProductBrand))]
+    [Subscribe, Topic(nameof(OnCreatedProductBrand))]
     public static OnCreatedProductBrandPayload OnCreatedProductBrand(
         ProductsDbContext dbContext,
         [EventMessage] ProductBrand productBrand,

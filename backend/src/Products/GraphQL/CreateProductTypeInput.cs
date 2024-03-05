@@ -5,4 +5,4 @@ namespace ShopFusion.Products.GraphQL;
 
 public sealed record CreateProductTypeInput(
     string Name
-);// : IRequest<ProductType?>;
+) : IRequest<ProductType?>;

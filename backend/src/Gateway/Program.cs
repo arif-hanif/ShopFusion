@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.WebSockets;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
@@ -13,6 +15,7 @@ var app = builder.Build();
 app.UseWebSockets();
 //app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseHeaderPropagation();
+app.MapGet("/", () => "Welcome to the gateway!");
 app.MapGraphQL();
 
 app.RunWithGraphQLCommands(args);

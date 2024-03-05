@@ -1,6 +1,17 @@
+using ShopFusion.Reviews.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddServiceDefaults();
+builder.AddApplicationServices();
+
+builder.Services
+    .AddHttpContextAccessor();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Welcome to the reviews host!");
+app.UseWebSockets();
+app.MapGet("/", () => "Welcome to the reviews subgraph!");
+app.MapGraphQL();
 
-app.Run();
+app.RunWithGraphQLCommands(args);

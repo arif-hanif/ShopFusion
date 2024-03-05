@@ -13,8 +13,8 @@ public static class ProductBrandNode
         IDbContextFactory<ProductsDbContext> dbContextFactory,
         CancellationToken cancellationToken)
     {
-        await using ProductsDbContext context = await dbContextFactory.CreateDbContextAsync(cancellationToken);
-        return await context.ProductBrands
+        await using ProductsDbContext dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
+        return await dbContext.ProductBrands
             .Where(t => ids.Contains(t.Id))
             .ToDictionaryAsync(t => t.Id, cancellationToken);
     }

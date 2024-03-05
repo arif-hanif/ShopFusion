@@ -11,8 +11,8 @@ public class Product
     [MaxLength(255)]
     public string? Description { get; set; }
     public double Price { get; set; }
-    public Guid ProductTypeId { get; set; }
-    public required ProductType ProductType { get; set; }
-    public Guid ProductBrandId { get; set; }
-    public required ProductBrand ProductBrand { get; set; }
+    public required Guid ProductTypeId { get; set; }
+    public ProductType? ProductType { get; set; }
+    public required Guid ProductBrandId { get; set; }
+    public ProductBrand? ProductBrand { get; set; }
 }

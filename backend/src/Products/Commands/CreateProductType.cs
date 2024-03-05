@@ -8,23 +8,23 @@ using ShopFusion.Shared.Errors;
 
 namespace ShopFusion.Products.Commands;
 
-public class CreateProductBrand(
+public class CreateProductType(
     IDbContextFactory<ProductsDbContext> dbContextFactory,
     ITopicEventSender eventSender)
-    : IRequestHandler<CreateProductBrandInput, ProductBrand?>
+    : IRequestHandler<CreateProductTypeInput, ProductType?>
 {
-    public async ValueTask<ProductBrand?> Handle(
-        CreateProductBrandInput request,
+    public async ValueTask<ProductType?> Handle(
+        CreateProductTypeInput request,
         CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(request.Name))
         {
-            throw new InvalidNameException(nameof(ProductBrand));
+            throw new InvalidNameException(nameof(ProductType));
         }
         
         await using ProductsDbContext dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
         
-        var productBrand = new ProductBrand
+        var productType = new ProductType
         {
             Id = Guid.NewGuid(), 
             Name = request.Name
@@ -32,7 +32,7 @@ public class CreateProductBrand(
 
         try
         {
-            await dbContext.ProductBrands.AddAsync(productBrand, cancellationToken);
+            await dbContext.ProductTypes.AddAsync(productType, cancellationToken);
             await dbContext.SaveChangesAsync(cancellationToken);
         }
         catch
@@ -40,10 +40,12 @@ public class CreateProductBrand(
             throw new DatabaseOperationException();
         }
 
-        await eventSender.SendAsync(nameof(Operations.OnCreatedProductBrand), productBrand,
+        await eventSender.SendAsync(
+            nameof(Operations.OnCreatedProductBrand), 
+            productType,
             cancellationToken);
 
-        return productBrand;
+        return productType;
     }
 }
 
