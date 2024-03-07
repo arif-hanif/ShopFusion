@@ -1,6 +1,6 @@
 using StackExchange.Redis;
 
-namespace Basket.Data;
+namespace ShopFusion.Basket.Data;
 
 public class BasketRepository(
     ILogger<BasketRepository> logger, 

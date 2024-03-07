@@ -41,4 +41,23 @@ public static class Operations
     }
     
     #endregion 
+    
+    #region Product
+    
+    [Query]
+    [UsePaging]
+    [UseProjection]
+    [UseFiltering]
+    [UseSorting]
+    public static IQueryable<Product> GetProducts(ProductsDbContext dbContext) => dbContext.Products;
+    
+    [Query]
+    [NodeResolver]
+    public static async Task<Product?> GetProductById(
+        Guid id,
+        ProductByIdDataLoader productBrandById,
+        CancellationToken cancellationToken)
+        => await productBrandById.LoadAsync(id, cancellationToken);
+    
+    #endregion
 }

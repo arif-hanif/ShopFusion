@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EntityFramework.Helpers;
+using Microsoft.EntityFrameworkCore;
 using ShopFusion.Products.Data;
 
 namespace ShopFusion.Products.Extensions;
@@ -13,12 +14,7 @@ public static class Extensions
 
         if (builder.Environment.IsDevelopment())
         {
-            ServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
-            using IServiceScope scope = serviceProvider.CreateScope();
-            IDbContextFactory<ProductsDbContext> dbContextFactory =
-                scope.ServiceProvider.GetRequiredService<IDbContextFactory<ProductsDbContext>>();
-            using ProductsDbContext dbContext = dbContextFactory.CreateDbContext();
-            dbContext.Database.Migrate();
+            builder.Services.AddMigration<ProductsDbContext>();
         }
         
         builder.Services

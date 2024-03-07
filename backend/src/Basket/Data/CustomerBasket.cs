@@ -1,4 +1,4 @@
-namespace Basket.Data;
+namespace ShopFusion.Basket.Data;
 
 public class CustomerBasket(string customerId)
 {

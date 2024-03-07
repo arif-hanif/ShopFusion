@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Basket.Data;
+namespace ShopFusion.Basket.Data;
 
 public class BasketItem : IValidatableObject
 {
@@ -12,13 +12,15 @@ public class BasketItem : IValidatableObject
     public int Quantity { get; set; }
     public string? PictureUrl { get; set; }
 
+    private static readonly string[] memberNames = new[] { "Quantity" };
+
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
         var results = new List<ValidationResult>();
 
         if (Quantity < 1)
         {
-            results.Add(new ValidationResult("Invalid number of units", new[] { "Quantity" }));
+            results.Add(new ValidationResult("Invalid number of units", memberNames));
         }
 
         return results;

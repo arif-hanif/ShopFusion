@@ -1,10 +1,18 @@
 ﻿using Mediator;
+using ShopFusion.Reviews.Data;
 using ShopFusion.Reviews.Models;
 
 namespace ShopFusion.Reviews.GraphQL;
 
 public static class Operations
 {
+    [Query]
+    [UsePaging]
+    [UseProjection]
+    [UseFiltering]
+    [UseSorting]
+    public static IQueryable<Review> GetReviews(ReviewsDbContext dbContext) => dbContext.Reviews;
+    
     [Query]
     [NodeResolver]
     public static async Task<Review?> GetReviewById(
@@ -26,4 +34,23 @@ public static class Operations
         ReviewByIdDataLoader reviewById,
         CancellationToken cancellationToken) 
         => await reviewById.LoadAsync(reviewId, cancellationToken);
+    
+    [Query]
+    [NodeResolver]
+    public static async Task<User?> GetUserById(
+        Guid id,
+        UserByIdDataLoader userById,
+        CancellationToken cancellationToken)
+        => await userById.LoadAsync(id, cancellationToken);
+    
+    [Query]
+    [UsePaging]
+    [UseProjection]
+    [UseFiltering]
+    [UseSorting]
+    public static IQueryable<User> GetUsers(ReviewsDbContext context) => context.Users;
+    
+    [Query]
+    public static Product GetProductById([ID<Product>] Guid id)
+        => new (id);
 }

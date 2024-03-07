@@ -14,7 +14,8 @@ public class Review
     
     public required int Stars { get; set; }
     
-    public required Guid ProductId { get; set; }
+    [Required]
+    public Guid ProductId { get; set; }
     
     public Guid AuthorId { get; set; }
     

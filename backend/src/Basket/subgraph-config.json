@@ -1,4 +1,0 @@
-{
-  "subgraph": "basket",
-  "http": { "baseAddress": "http://localhost:59091/graphql" }
-}

@@ -1,4 +1,4 @@
-namespace Basket.Data;
+namespace ShopFusion.Basket.Data;
 
 public interface IBasketRepository
 {

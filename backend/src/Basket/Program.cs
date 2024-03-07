@@ -1,5 +1,3 @@
-using Basket.Data;
-
 var builder = WebApplication.CreateBuilder(args);
 
 //builder.AddRedis("");

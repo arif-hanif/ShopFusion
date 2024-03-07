@@ -11,33 +11,35 @@ var postgres = builder
 var productsDb = postgres.AddDatabase("ProductsDB");
 var reviewsDb = postgres.AddDatabase("ReviewsDB");
 
-var productsHost = builder
-    .AddProject<Projects.Products>("products-host")
-    .WithReference(productsDb)
-    .WithHttpEndpoint(hostPort: 59090, name: "products");
+var products = builder
+    .AddProject<Projects.Products>("products")
+    .WithReference(productsDb);
 
-var basketHost = builder
-    .AddProject<Projects.Basket>("basket-host")
-    .WithReference(redis)
-    .WithHttpEndpoint(hostPort: 59091, name: "basket");
+var basket = builder
+    .AddProject<Projects.Basket>("basket")
+    .WithReference(redis);
 
-var reviewsHost = builder
-    .AddProject<Projects.Reviews>("reviews-host")
-    .WithReference(reviewsDb)
-    .WithHttpEndpoint(hostPort: 59092, name: "reviews");
+var reviews = builder
+    .AddProject<Projects.Reviews>("reviews")
+    .WithReference(reviewsDb);
+
+var gateway = builder
+    .AddFusionGateway<Projects.Gateway>(name: "gateway")
+    .WithSubgraph(products)
+    .WithSubgraph(reviews);
+    //.WithSubgraph(basket);
+
+var gatewayEndpoint = gateway.GetEndpoint("http");
 
 builder
     .AddPnpmApp(
         name: "storefront-web",
-        workingDirectory:"../../../frontend",
-        scriptName: "dev", 
+        workingDirectory: "../../../frontend",
+        scriptName: "dev",
         args: ["--filter=@shopfusion/storefront-web"])
-    .WithReference(productsHost);
+    .WithEnvironment("GRAPHQL_ENDPOINT", gatewayEndpoint.UriString);
 
 builder
-    .AddProject<Projects.Gateway>(name: "gateway")
-    .WithReference(productsHost)
-    .WithReference(basketHost)
-    .WithReference(reviewsHost);
-
-builder.Build().Run();
+    .Build()
+    .Compose()
+    .Run();

@@ -1,5 +1,4 @@
-﻿using HotChocolate.Subscriptions;
-using Mediator;
+﻿using Mediator;
 using Microsoft.EntityFrameworkCore;
 using ShopFusion.Products.Data;
 using ShopFusion.Products.GraphQL;

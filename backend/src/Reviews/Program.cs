@@ -1,4 +1,5 @@
 using ShopFusion.Reviews.Extensions;
+using ShopFusion.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 
