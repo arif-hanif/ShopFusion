@@ -6,12 +6,12 @@ builder.Services
 
 builder.Services
     .AddFusionGatewayServer()
-    .ConfigureFromFile("./gateway.fgp", watchFileForUpdates: true);
+    .AddServiceDiscoveryRewriter()
+    .ConfigureFromFile("./gateway.fgp");
 
 var app = builder.Build();
 
 app.UseWebSockets();
-//app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseHeaderPropagation();
 app.MapGet("/", () => "Welcome to the gateway!");
 app.MapGraphQL();
