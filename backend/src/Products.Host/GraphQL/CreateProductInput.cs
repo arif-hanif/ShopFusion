@@ -1,5 +1,5 @@
-using Mediator;
-using ShopFusion.Products.Models;
+﻿using Mediator;
+using ShopFusion.Products.Domain;
 
 namespace ShopFusion.Products.GraphQL;
 

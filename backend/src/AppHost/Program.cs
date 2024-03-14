@@ -13,6 +13,10 @@ var products = builder
     .AddProject<Projects.ShopFusion_Products_Host>("products-host")
     .WithReference(productsDb);
 
+builder
+    .AddProject<Projects.ShopFusion_Products_MigrationService>("products-migrations")
+    .WithReference(productsDb);
+
 var reviews = builder
     .AddProject<Projects.ShopFusion_Reviews_Host>("reviews-host")
     .WithReference(reviewsDb);

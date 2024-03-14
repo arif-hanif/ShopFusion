@@ -1,8 +1,8 @@
 ﻿using Mediator;
 using Microsoft.EntityFrameworkCore;
-using ShopFusion.Products.Data;
+using ShopFusion.Products.Infrastructure;
 using ShopFusion.Products.GraphQL;
-using ShopFusion.Products.Models;
+using ShopFusion.Products.Domain;
 using ShopFusion.Shared.Errors;
 
 namespace ShopFusion.Products.Commands;

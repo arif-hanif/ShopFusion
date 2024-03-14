@@ -1,8 +1,8 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShopFusion.Products.Models;
+namespace ShopFusion.Products.Domain;
 
-public class ProductBrand
+public class ProductType
 {
     [Key]
     public Guid Id { get; set; }

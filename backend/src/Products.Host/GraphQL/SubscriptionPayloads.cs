@@ -1,4 +1,4 @@
-﻿using ShopFusion.Products.Models;
+﻿using ShopFusion.Products.Domain;
 
 namespace ShopFusion.Products.GraphQL;
 

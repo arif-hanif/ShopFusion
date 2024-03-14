@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShopFusion.Products.Data;
+using ShopFusion.Products.Infrastructure;
+using ShopFusion.ServiceDefaults;
 
 namespace ShopFusion.Products.Host.Extensions;
 
@@ -7,14 +8,12 @@ public static class Extensions
 {
     public static void AddApplicationServices(this IHostApplicationBuilder builder)
     {
+        builder.AddServiceDefaults();
+
         builder.Services
             .AddPooledDbContextFactory<ProductsDbContext>(
                 x => x.UseNpgsql(builder.Configuration.GetConnectionString("Products")));
         
-        //if (builder.Environment.IsDevelopment())
-        //{
-        //    builder.Services.AddMigration<ProductsDbContext>();
-        //}
         
         builder.Services
             .AddMediator();

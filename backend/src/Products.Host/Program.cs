@@ -1,13 +1,12 @@
-using ShopFusion.Products.Host.Extensions;
-using ShopFusion.ServiceDefaults;
+﻿using ShopFusion.Products.Host.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.AddServiceDefaults();
-builder.AddApplicationServices();
-
 builder.Services
     .AddHttpContextAccessor();
+
+builder.AddApplicationServices();
+
 
 var app = builder.Build();
 

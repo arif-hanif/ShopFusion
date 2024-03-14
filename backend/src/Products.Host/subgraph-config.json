@@ -1,4 +1,6 @@
 {
-  "subgraph":"Products",
-  "http": { "baseAddress": "http://localhost:59091/graphql" }
+  "subgraph":"ShopFusion_Products_Host",
+  "http": {
+    "baseAddress": "http://localhost:59091/graphql"
+  }
 }

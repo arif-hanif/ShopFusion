@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Reviews.Host\ShopFusion.Reviews.Host.csproj" />
     <ProjectReference Include="..\Gateway.Host\ShopFusion.Gateway.Host.csproj" />
     <ProjectReference Include="..\Reviews.MigrationService\ShopFusion.Reviews.MigrationService.csproj" />
+    <ProjectReference Include="..\Products.MigrationService\ShopFusion.Products.MigrationService.csproj" />
   </ItemGroup>
 
 </Project>

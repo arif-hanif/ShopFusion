@@ -1,7 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using ShopFusion.Products.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ShopFusion.Products.Domain;
 
-namespace ShopFusion.Products.Data;
+namespace ShopFusion.Products.Infrastructure;
 
 /// <remarks>
 /// Add migrations using the following command inside the 'Products' project directory:

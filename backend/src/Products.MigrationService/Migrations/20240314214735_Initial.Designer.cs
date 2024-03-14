@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using ShopFusion.Products.Data;
+using ShopFusion.Products.Infrastructure;
 
 #nullable disable
 
-namespace ShopFusion.Products.Migrations
+namespace ShopFusion.Products.MigrationService.Migrations
 {
     [DbContext(typeof(ProductsDbContext))]
-    [Migration("20240304163959_Initial")]
+    [Migration("20240314214735_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -20,12 +20,12 @@ namespace ShopFusion.Products.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.2")
+                .HasAnnotation("ProductVersion", "8.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ShopFusion.Products.Models.Product", b =>
+            modelBuilder.Entity("ShopFusion.Products.Domain.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,7 +58,7 @@ namespace ShopFusion.Products.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("ShopFusion.Products.Models.ProductBrand", b =>
+            modelBuilder.Entity("ShopFusion.Products.Domain.ProductBrand", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,7 +74,7 @@ namespace ShopFusion.Products.Migrations
                     b.ToTable("ProductBrands");
                 });
 
-            modelBuilder.Entity("ShopFusion.Products.Models.ProductType", b =>
+            modelBuilder.Entity("ShopFusion.Products.Domain.ProductType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,15 +90,15 @@ namespace ShopFusion.Products.Migrations
                     b.ToTable("ProductTypes");
                 });
 
-            modelBuilder.Entity("ShopFusion.Products.Models.Product", b =>
+            modelBuilder.Entity("ShopFusion.Products.Domain.Product", b =>
                 {
-                    b.HasOne("ShopFusion.Products.Models.ProductBrand", "ProductBrand")
+                    b.HasOne("ShopFusion.Products.Domain.ProductBrand", "ProductBrand")
                         .WithMany()
                         .HasForeignKey("ProductBrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ShopFusion.Products.Models.ProductType", "ProductType")
+                    b.HasOne("ShopFusion.Products.Domain.ProductType", "ProductType")
                         .WithMany()
                         .HasForeignKey("ProductTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
