@@ -2,11 +2,10 @@ using ShopFusion.Reviews.Host.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.AddApplicationServices();
-
 builder.Services
     .AddHttpContextAccessor();
+
+builder.AddApplicationServices();
 
 var app = builder.Build();
 

@@ -3,10 +3,9 @@ using ShopFusion.Reviews.Infrastructure;
 
 namespace ShopFusion.Reviews.Host.GraphQL;
 
-
-public class ProductType : ObjectType<Product>
+public sealed class Product(Guid id)
 {
-    [ID<Product>] public Guid Id { get; }
+    [ID<Product>] public Guid Id { get; } = id;
 
     [UsePaging(ConnectionName = "ProductReviews")]
     public IQueryable<Review> GetReviews(ReviewsDbContext context)

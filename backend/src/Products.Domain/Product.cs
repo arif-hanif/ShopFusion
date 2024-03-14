@@ -6,6 +6,8 @@ public class Product
 {
     [Key]
     public Guid Id { get; set; }
+    
+    [Required]
     [MaxLength(255)]
     public required string Name { get; set; }
     [MaxLength(255)]
