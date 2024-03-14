@@ -6,21 +6,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0FA4B519-F07
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9CD75737-E1D9-423F-80CC-3EEEFB10CF45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "src\Gateway\Gateway.csproj", "{779F42E2-8671-420E-B7E8-F57E57F2ACFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.Gateway.Host", "src\Gateway.Host\ShopFusion.Gateway.Host.csproj", "{779F42E2-8671-420E-B7E8-F57E57F2ACFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products", "src\Products\Products.csproj", "{EB0386EA-7D1C-4DC7-800A-841B2BD85310}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.Products.Host", "src\Products.Host\ShopFusion.Products.Host.csproj", "{EB0386EA-7D1C-4DC7-800A-841B2BD85310}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket", "src\Basket\Basket.csproj", "{FEEF3177-84A8-44AC-AACB-541F39137CD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.Basket.Host", "src\Basket.Host\ShopFusion.Basket.Host.csproj", "{FEEF3177-84A8-44AC-AACB-541F39137CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reviews", "src\Reviews\Reviews.csproj", "{59999499-8956-4CE8-9810-810F036B2F5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.Reviews.Host", "src\Reviews.Host\ShopFusion.Reviews.Host.csproj", "{59999499-8956-4CE8-9810-810F036B2F5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceDefaults", "src\ServiceDefaults\ServiceDefaults.csproj", "{E496A38A-28FD-48C5-8F34-32D0C04BEEDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.ServiceDefaults", "src\ServiceDefaults\ShopFusion.ServiceDefaults.csproj", "{E496A38A-28FD-48C5-8F34-32D0C04BEEDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHost", "src\AppHost\AppHost.csproj", "{D0CEFD42-4978-4691-ACF2-98B21E33ADD7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.AppHost", "src\AppHost\ShopFusion.AppHost.csproj", "{D0CEFD42-4978-4691-ACF2-98B21E33ADD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "src\Shared\Shared.csproj", "{410ECE76-90DA-40E3-B061-67F0CD15FAAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.Shared", "src\Shared\ShopFusion.Shared.csproj", "{410ECE76-90DA-40E3-B061-67F0CD15FAAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Helpers", "src\EntityFramework.Helpers\EntityFramework.Helpers.csproj", "{8399E58C-79AF-43DD-A14B-5EC2AC093076}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.Reviews.MigrationService", "src\Reviews.MigrationService\ShopFusion.Reviews.MigrationService.csproj", "{5CD7307B-60E0-4ED7-A7A7-F9BC7FF371C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.Reviews.Domain", "src\Reviews.Domain\ShopFusion.Reviews.Domain.csproj", "{5ACDBD8F-261E-460F-B9BA-152D29F6689B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFusion.Reviews.Infrastructure", "src\Reviews.Infrastructure\ShopFusion.Reviews.Infrastructure.csproj", "{98EDBB23-B9F5-4071-A7EA-B8A9764A7D44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +64,18 @@ Global
 		{8399E58C-79AF-43DD-A14B-5EC2AC093076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8399E58C-79AF-43DD-A14B-5EC2AC093076}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8399E58C-79AF-43DD-A14B-5EC2AC093076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD7307B-60E0-4ED7-A7A7-F9BC7FF371C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD7307B-60E0-4ED7-A7A7-F9BC7FF371C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD7307B-60E0-4ED7-A7A7-F9BC7FF371C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD7307B-60E0-4ED7-A7A7-F9BC7FF371C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ACDBD8F-261E-460F-B9BA-152D29F6689B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ACDBD8F-261E-460F-B9BA-152D29F6689B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ACDBD8F-261E-460F-B9BA-152D29F6689B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ACDBD8F-261E-460F-B9BA-152D29F6689B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98EDBB23-B9F5-4071-A7EA-B8A9764A7D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98EDBB23-B9F5-4071-A7EA-B8A9764A7D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98EDBB23-B9F5-4071-A7EA-B8A9764A7D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98EDBB23-B9F5-4071-A7EA-B8A9764A7D44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +89,9 @@ Global
 		{D0CEFD42-4978-4691-ACF2-98B21E33ADD7} = {0FA4B519-F079-4817-929D-9D36CB17C616}
 		{410ECE76-90DA-40E3-B061-67F0CD15FAAB} = {0FA4B519-F079-4817-929D-9D36CB17C616}
 		{8399E58C-79AF-43DD-A14B-5EC2AC093076} = {0FA4B519-F079-4817-929D-9D36CB17C616}
+		{5CD7307B-60E0-4ED7-A7A7-F9BC7FF371C0} = {0FA4B519-F079-4817-929D-9D36CB17C616}
+		{5ACDBD8F-261E-460F-B9BA-152D29F6689B} = {0FA4B519-F079-4817-929D-9D36CB17C616}
+		{98EDBB23-B9F5-4071-A7EA-B8A9764A7D44} = {0FA4B519-F079-4817-929D-9D36CB17C616}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		

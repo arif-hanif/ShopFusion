@@ -1,23 +1,27 @@
-using AppHost.Extensions;
-
 var builder = DistributedApplication.CreateBuilder(args);
 
 var postgres = builder
-    .AddPostgresContainer(name: "postgres", port: 5432, password: "new123!");
+    .AddPostgres("ShopFusion")
+    .WithPgAdmin();
 
-var productsDb = postgres.AddDatabase("ProductsDB");
-var reviewsDb = postgres.AddDatabase("ReviewsDB");
+var productsDb = postgres
+    .AddDatabase(name: "Products");
+var reviewsDb = postgres
+    .AddDatabase(name: "Reviews");
 
 var products = builder
-    .AddProject<Projects.Products>("products")
+    .AddProject<Projects.ShopFusion_Products_Host>("products-host")
     .WithReference(productsDb);
 
 var reviews = builder
-    .AddProject<Projects.Reviews>("reviews")
+    .AddProject<Projects.ShopFusion_Reviews_Host>("reviews-host")
+    .WithReference(reviewsDb);
+
+builder.AddProject<Projects.ShopFusion_Reviews_MigrationService>("reviews-migrations")
     .WithReference(reviewsDb);
 
 builder
-    .AddFusionGateway<Projects.Gateway>(name: "gateway")
+    .AddFusionGateway<Projects.ShopFusion_Gateway_Host>(name: "gateway-host")
     .WithSubgraph(products)
     .WithSubgraph(reviews);
 

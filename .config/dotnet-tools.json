@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "hotchocolate.fusion.commandline": {
-      "version": "14.0.0-p.60",
+      "version": "14.0.0-p.63",
       "commands": ["fusion"]
     },
     "barista": {

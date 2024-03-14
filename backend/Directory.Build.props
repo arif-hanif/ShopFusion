@@ -8,8 +8,8 @@
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <ImplicitUsings>enable</ImplicitUsings>
-    <HotChocolateVersion>14.0.0-p.60</HotChocolateVersion>
-    <AspireVersion>8.0.0-preview.3.24105.21</AspireVersion>
+    <HotChocolateVersion>14.0.0-p.63</HotChocolateVersion>
+    <AspireVersion>8.0.0-preview.4.24156.9</AspireVersion>
     <MediatorVersion>2.1.7</MediatorVersion>
     <EntityFrameworkVersion>8.0.2</EntityFrameworkVersion>
   </PropertyGroup>

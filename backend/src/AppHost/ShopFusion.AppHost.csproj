@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HotChocolate.Fusion.Aspire" Version="$(HotChocolateVersion)" />
+    <PackageReference Include="HotChocolate.Fusion.Aspire.Analyzers" Version="$(HotChocolateVersion)">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <ProjectReference Include="..\Basket.Host\ShopFusion.Basket.Host.csproj" />
+    <ProjectReference Include="..\Products.Host\ShopFusion.Products.Host.csproj" />
+    <ProjectReference Include="..\Reviews.Host\ShopFusion.Reviews.Host.csproj" />
+    <ProjectReference Include="..\Gateway.Host\ShopFusion.Gateway.Host.csproj" />
+    <ProjectReference Include="..\Reviews.MigrationService\ShopFusion.Reviews.MigrationService.csproj" />
+  </ItemGroup>
+
+</Project>

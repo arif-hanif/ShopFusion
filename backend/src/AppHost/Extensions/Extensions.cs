@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 
-namespace AppHost.Extensions;
+namespace ShopFusion.AppHost.Extensions;
 
 public static class Extensions
 {
