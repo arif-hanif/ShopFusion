@@ -1,0 +1,42 @@
+<Project>
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+		<RuntimeVersion>8.0.2</RuntimeVersion>
+		<AspireVersion>8.0.0-preview.4.24156.9</AspireVersion>
+    <HotChocolateVersion>14.0.0-p.63</HotChocolateVersion>
+    <MediatorVersion>3.0.0-preview.21</MediatorVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageVersion Include="Aspire.Azure.Storage.Blobs" Version="$(AspireVersion)" />
+		<PackageVersion Include="Aspire.Hosting.Azure" Version="$(AspireVersion)" />
+		<PackageVersion Include="Aspire.Hosting" Version="$(AspireVersion)" />
+		<PackageVersion Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="$(AspireVersion)" />
+		<PackageVersion Include="Aspire.Npgsql" Version="$(AspireVersion)" />
+		<PackageVersion Include="Aspire.StackExchange.Redis" Version="$(AspireVersion)" />
+		<PackageVersion Include="Azure.Identity" Version="1.10.4" />
+		<PackageVersion Include="Azure.Security.KeyVault.Secrets" Version="4.6.0-beta.2" />
+    <PackageVersion Include="HotChocolate.AspNetCore" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="HotChocolate.AspNetCore.CommandLine" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="HotChocolate.Diagnostics" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="HotChocolate.Data.EntityFramework" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="HotChocolate.Fusion" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="HotChocolate.Fusion.Aspire" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="HotChocolate.Fusion.Aspire.Analyzers" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="HotChocolate.Types.Analyzers" Version="$(HotChocolateVersion)" />
+    <PackageVersion Include="Mediator.Abstractions" Version="$(MediatorVersion)" />
+    <PackageVersion Include="Mediator.SourceGenerator" Version="$(MediatorVersion)" />
+    <PackageVersion Include="Microsoft.AspNetCore.HeaderPropagation" Version="$(RuntimeVersion)" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(RuntimeVersion)" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(RuntimeVersion)" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(RuntimeVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="8.2.0" />
+		<PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="$(AspireVersion)" />
+		<PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.7.0" />
+		<PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.7.0" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.7.1" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.GrpcNetClient" Version="1.6.0-beta.3" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.7.1" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.7.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Process" Version="0.5.0-beta.4"/>
+	</ItemGroup>
+</Project>

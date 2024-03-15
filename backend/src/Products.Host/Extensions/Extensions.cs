@@ -14,7 +14,6 @@ public static class Extensions
             .AddPooledDbContextFactory<ProductsDbContext>(
                 x => x.UseNpgsql(builder.Configuration.GetConnectionString("Products")));
         
-        
         builder.Services
             .AddMediator();
         

@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Mediator.Abstractions" Version="$(MediatorVersion)" />
+      <PackageReference Include="Mediator.Abstractions" />
     </ItemGroup>
 
 </Project>

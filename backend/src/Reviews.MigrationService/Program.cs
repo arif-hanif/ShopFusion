@@ -19,6 +19,4 @@ builder.Services.AddHostedService(sp => sp.GetRequiredService<Worker>());
 
 var app = builder.Build();
 
-app.MapDefaultEndpoints();
-
 await app.RunAsync();

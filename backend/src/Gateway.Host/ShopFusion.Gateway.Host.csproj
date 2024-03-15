@@ -7,14 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HotChocolate.AspNetCore" Version="$(HotChocolateVersion)" />
-    <PackageReference Include="HotChocolate.AspNetCore.CommandLine" Version="$(HotChocolateVersion)" />
-    <PackageReference Include="HotChocolate.Fusion" Version="$(HotChocolateVersion)" />
-    <PackageReference Include="HotChocolate.Diagnostics" Version="$(HotChocolateVersion)" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.HeaderPropagation" Version="8.0.2" />
+    <PackageReference Include="HotChocolate.AspNetCore" />
+    <PackageReference Include="HotChocolate.AspNetCore.CommandLine" />
+    <PackageReference Include="HotChocolate.Fusion" />
+    <PackageReference Include="HotChocolate.Diagnostics" />
+    <PackageReference Include="Microsoft.AspNetCore.HeaderPropagation" />
   </ItemGroup>
 
 </Project>

@@ -7,7 +7,6 @@ builder.Services
 
 builder.AddApplicationServices();
 
-
 var app = builder.Build();
 
 app.UseWebSockets();

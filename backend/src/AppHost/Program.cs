@@ -6,8 +6,6 @@ var postgres = builder
 
 var productsDb = postgres
     .AddDatabase(name: "Products");
-var reviewsDb = postgres
-    .AddDatabase(name: "Reviews");
 
 var products = builder
     .AddProject<Projects.ShopFusion_Products_Host>("products-host")
@@ -17,11 +15,15 @@ builder
     .AddProject<Projects.ShopFusion_Products_MigrationService>("products-migrations")
     .WithReference(productsDb);
 
+var reviewsDb = postgres
+    .AddDatabase(name: "Reviews");
+
 var reviews = builder
     .AddProject<Projects.ShopFusion_Reviews_Host>("reviews-host")
     .WithReference(reviewsDb);
 
-builder.AddProject<Projects.ShopFusion_Reviews_MigrationService>("reviews-migrations")
+builder
+    .AddProject<Projects.ShopFusion_Reviews_MigrationService>("reviews-migrations")
     .WithReference(reviewsDb);
 
 builder
