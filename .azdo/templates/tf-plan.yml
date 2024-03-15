@@ -1,0 +1,83 @@
+parameters:
+  - name: terraform_version
+    default: "1.7.5"
+  - name: service_connection
+    default: " "
+  - name: environment
+    default: " "
+  - name: working_directory
+    default: "$(System.DefaultWorkingDirectory)"
+
+jobs:
+  - job: plan_${{ parameters.environment }}
+    displayName: Terraform Plan ${{ parameters.environment }}
+    steps:
+      # Download the specified version of Terraform and unzip it
+      - task: Bash@3
+        displayName: "Install Terraform ${{ parameters.terraform_version }}"
+        inputs:
+          targetType: "inline"
+          script: |
+            echo "Downloading from: https://releases.hashicorp.com/terraform/${{ parameters.terraform_version}}/terraform_${{ parameters.terraform_version }}_linux_amd64.zip"
+            echo "Installing to: /usr/local/bin/terraform"
+            curl https://releases.hashicorp.com/terraform/${{ parameters.terraform_version }}/terraform_${{ parameters.terraform_version }}_linux_amd64.zip --output terraform.zip
+            unzip terraform.zip
+            mv terraform /usr/local/bin/terraform
+            rm terraform.zip
+
+      # Run Terraform Init.
+      - task: AzureCLI@2
+        displayName: "Terraform Init"
+        inputs:
+          workingDirectory: "${{ parameters.working_directory }}"
+          addSpnToEnvironment: true
+          azureSubscription: "${{ parameters.service_connection }}"
+          scriptType: bash
+          scriptLocation: inlineScript
+          inlineScript: |
+            # Inherit Azure CLI service connection
+            export ARM_CLIENT_ID=$servicePrincipalId
+            export ARM_OIDC_TOKEN=$idToken
+            export ARM_TENANT_ID=$tenantId
+            export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+            export ARM_USE_OIDC=true
+
+            echo "terraform init -upgrade -backend-config=${{ parameters.environment }}.backend.tfbackend \
+            -no-color"
+
+            terraform init -upgrade -backend-config=${{ parameters.environment }}.backend.tfbackend \
+            -no-color
+
+      # Run Terraform Plan. Output the plan file to the artifact staging directory.
+      - task: AzureCLI@2
+        displayName: "Terraform Plan"
+        inputs:
+          workingDirectory: "${{ parameters.working_directory }}"
+          addSpnToEnvironment: true
+          azureSubscription: "${{ parameters.service_connection }}"
+          scriptType: bash
+          scriptLocation: inlineScript
+          inlineScript: |
+            # Inherit Azure CLI service connection
+            export ARM_CLIENT_ID=$servicePrincipalId
+            export ARM_OIDC_TOKEN=$idToken
+            export ARM_TENANT_ID=$tenantId
+            export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+            export ARM_USE_OIDC=true
+
+            echo "terraform plan -var-file ${{ parameters.environment }}.tfvars \
+            -out=$(Build.ArtifactStagingDirectory)/platform-${{ parameters.environment }}.tfplan \
+            -no-color \
+            -input=false"
+
+            terraform plan -var-file ${{ parameters.environment }}.tfvars \
+            -out=$(Build.ArtifactStagingDirectory)/platform-${{ parameters.environment }}.tfplan \
+            -no-color \
+            -input=false
+
+      # Publish the artifact from the previous task
+      - task: PublishBuildArtifacts@1
+        displayName: "Publish Terraform Artifacts"
+        inputs:
+          pathtoPublish: "$(Build.ArtifactStagingDirectory)"
+          artifactName: "platform-terraform-plan"

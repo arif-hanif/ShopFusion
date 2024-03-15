@@ -5,7 +5,6 @@ trigger:
   paths:
     include:
       - backend/src/Products
-      - .devop/apps/deploy-products.yml
       - .config
 
 stages:
@@ -41,7 +40,7 @@ stages:
           - task: Docker@2
             displayName: "Build Subgraph Container"
             inputs:
-              containerRegistry: "Shop Fusion Registry"
+              containerRegistry: ""
               repository: "products-subgraph"
               command: "buildAndPush"
               Dockerfile: "./Subgraphs/Products/dockerfile"
@@ -82,10 +81,10 @@ stages:
                 - task: AzureContainerApps@1
                   displayName: "Deploy Subgraph Container"
                   inputs:
-                    azureSubscription: "MVP Credits(621759a8-3784-47fa-b2a9-b69c462fce44)"
-                    imageToDeploy: "cccfusionusshop.azurecr.io/products-subgraph:$(Build.BuildId)"
-                    containerAppName: "products-subgraph-dev-eu"
-                    resourceGroup: "ccc-fusion-eu"
+                    azureSubscription: ""
+                    imageToDeploy: ""
+                    containerAppName: "products-subgraph-dev"
+                    resourceGroup: ""
                 - task: CmdLine@2
                   displayName: "Complete Subgraph Deployment"
                   inputs:
