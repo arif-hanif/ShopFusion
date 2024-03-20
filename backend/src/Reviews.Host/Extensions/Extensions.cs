@@ -8,6 +8,9 @@ public static class Extensions
 {
     public static void AddApplicationServices(this IHostApplicationBuilder builder)
     {
+        builder.Services
+            .AddHttpContextAccessor();
+        
         builder.AddServiceDefaults();
         builder.AddNpgsqlDbContext<ReviewsDbContext>("Reviews");
         
@@ -27,7 +30,6 @@ public static class Extensions
             .AddProjections()
             .AddFiltering()
             .AddSorting()
-            .RegisterDbContext<ReviewsDbContext>(DbContextKind.Pooled)
             .AddInstrumentation(o => o.RenameRootActivity = true);
     }
 }

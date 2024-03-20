@@ -2,9 +2,6 @@
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services
-    .AddHttpContextAccessor();
-
 builder.AddApplicationServices();
 
 var app = builder.Build();

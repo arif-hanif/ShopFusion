@@ -37,4 +37,8 @@
     <ProjectReference Include="..\Shared\ShopFusion.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="GraphQL\Errors\" />
+  </ItemGroup>
+
 </Project>

@@ -8,7 +8,12 @@ public static class Extensions
 {
     public static void AddApplicationServices(this IHostApplicationBuilder builder)
     {
+        builder.Services
+            .AddHttpContextAccessor();
+        
         builder.AddServiceDefaults();
+        
+        builder.AddNpgsqlDbContext<ProductsDbContext>("Products");
 
         builder.Services
             .AddPooledDbContextFactory<ProductsDbContext>(
@@ -22,11 +27,12 @@ public static class Extensions
             .AddTypes()
             .AddInMemorySubscriptions()
             .AddGlobalObjectIdentification()
+            //.AddQueryConventions()
             .AddMutationConventions()
             .AddProjections()
             .AddFiltering()
             .AddSorting()
-            .RegisterDbContext<ProductsDbContext>(DbContextKind.Pooled)
+            //.RegisterDbContext<ProductsDbContext>(DbContextKind.Pooled)
             .AddInstrumentation(o => o.RenameRootActivity = true);
     }
 }

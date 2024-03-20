@@ -1,6 +1,7 @@
 ﻿using Mediator;
 using ShopFusion.Products.Infrastructure;
 using ShopFusion.Products.Domain;
+using ShopFusion.Shared.Errors;
 
 namespace ShopFusion.Products.GraphQL;
 
@@ -8,6 +9,7 @@ public static class Operations
 {
     #region ProductBrands
     
+    //[Error<DatabaseOperationException>]
     [Query]
     [UsePaging]
     [UseProjection]
