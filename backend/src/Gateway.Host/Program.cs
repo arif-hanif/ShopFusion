@@ -14,8 +14,8 @@ builder.Services
 
 builder.Services
     .AddFusionGatewayServer()
-    .ConfigureFromFile("./gateway.fgp")
-    .AddServiceDiscoveryRewriter();
+    .ConfigureFromFile("./gateway.fgp");
+    
 
 var app = builder.Build();
 
