@@ -1,1 +1,1 @@
-{"subgraph":"ShopFusion_Reviews_Host","http":{"baseAddress":"http://localhost:59092/grapqhl","clientName":"http"}}
+{"subgraph":"reviews-host","http":{"baseAddress":"http://localhost:5000/graphql","clientName":"http"}}

@@ -9,11 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="HotChocolate.Fusion.Aspire" />
-        <PackageReference Include="HotChocolate.Fusion.Aspire.Analyzers">
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
+      <PackageReference Include="Aspire.Hosting" />
+      <PackageReference Include="HotChocolate.Fusion.Aspire" />
     </ItemGroup>
 
     <ItemGroup>
