@@ -14,4 +14,8 @@
     <PackageReference Include="Microsoft.AspNetCore.HeaderPropagation" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceDefaults\ShopFusion.ServiceDefaults.csproj" />
+  </ItemGroup>
+
 </Project>

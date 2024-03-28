@@ -1,4 +1,8 @@
+using ShopFusion.ServiceDefaults;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddServiceDefaults();
 
 builder.Services
     .AddCors()
@@ -14,11 +18,13 @@ builder.Services
 
 builder.Services
     .AddFusionGatewayServer()
-    .ConfigureFromFile("./gateway.fgp");
+    .ConfigureFromFile("./gateway.fgp")
+    .AddServiceDiscoveryRewriter();
     
 
 var app = builder.Build();
 
+app.MapDefaultEndpoints();
 app.UseWebSockets();
 app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseHeaderPropagation();

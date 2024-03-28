@@ -1,4 +1,5 @@
-﻿using HotChocolate.Fusion.Aspire;
+﻿using Aspire.Hosting;
+using HotChocolate.Fusion.Aspire;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
