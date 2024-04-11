@@ -4,6 +4,7 @@
     "Products.MigrationService": {
       "commandName": "Project",
       "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:59096",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
       }

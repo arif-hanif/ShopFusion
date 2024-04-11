@@ -4,6 +4,7 @@
     "Reviews.MigrationService": {
       "commandName": "Project",
       "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:59095",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
       }

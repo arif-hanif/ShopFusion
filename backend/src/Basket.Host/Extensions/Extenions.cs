@@ -6,7 +6,7 @@ public static class Extensions
 {
     public static void AddApplicationServices(this IHostApplicationBuilder builder)
     {
-        builder.AddRedis("redis");
+        builder.AddRedisClient("redis");
 
         builder.Services.AddSingleton<IBasketRepository, BasketRepository>();
 

@@ -2,11 +2,12 @@
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Databases
+// Database Server
 var postgres = builder
     .AddPostgres("psql-server")
     .WithPgAdmin();
 
+// Databases
 var productsDb = postgres.AddDatabase(name: "Products");
 var reviewsDb = postgres.AddDatabase(name: "Reviews");
 
