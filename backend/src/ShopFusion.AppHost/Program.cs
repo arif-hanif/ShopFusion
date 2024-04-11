@@ -1,5 +1,4 @@
-﻿using Aspire.Hosting;
-using HotChocolate.Fusion.Aspire;
+﻿using HotChocolate.Fusion.Aspire;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -33,7 +32,7 @@ builder
 
 builder
     .AddFusionGateway<Projects.ShopFusion_Gateway_Host>("gateway-host")
-    .WithOptions(new FusionOptions { EnableGlobalObjectIdentification = true })
+    .WithOptions(new FusionCompositionOptions { EnableGlobalObjectIdentification = true })
     .WithSubgraph(productsHost)
     .WithSubgraph(reviewsHost);
 

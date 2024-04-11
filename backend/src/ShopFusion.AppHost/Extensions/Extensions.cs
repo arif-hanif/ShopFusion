@@ -33,7 +33,7 @@ public static class Extensions
             : ["run", scriptName];
 
         workingDirectory = PathNormalizer.NormalizePathForCurrentPlatform(Path.Combine(builder.AppHostDirectory, workingDirectory));
-        var resource = new NodeAppResource(name, "pnpm", workingDirectory, allArgs);
+        var resource = new NodeAppResource(name, "pnpm", workingDirectory);
 
         return builder.AddResource(resource)
             .WithNodeDefaults();

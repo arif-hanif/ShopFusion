@@ -1,5 +1,8 @@
 ﻿using ShopFusion.Products.Host.Extensions;
 using ShopFusion.ServiceDefaults;
+using IronWord;
+using IronWord.Models;
+using IronSoftware.Drawing;
 
 var builder = WebApplication.CreateBuilder(args);
 
